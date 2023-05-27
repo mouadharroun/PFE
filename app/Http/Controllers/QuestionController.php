@@ -40,4 +40,24 @@ class QuestionController extends Controller
     // Redirect or return a response
     return redirect()->back()->with('success', 'Question added successfully!');
 }
+
+    public function addTextQuestion(Request $request){
+    
+        return $request->input('question_content');
+
+        $question = new Question();
+        $question->exam_id = 1; // Set the default exam_id to 1
+        $question->question_text = $request->input('question_text');
+
+        if ($request->hasFile('imageFile')) {
+            $image = $request->file('imageFile');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $question->question_image = $imageName;
+        }
+
+        $question->save();
+
+        return redirect('teacher/dashboard')->with('success', 'Question saved successfully!');
+    }
 }

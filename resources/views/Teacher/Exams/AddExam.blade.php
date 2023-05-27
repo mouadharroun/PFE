@@ -99,10 +99,11 @@
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="newsletter-subscribe">
-                <div class="container text-center">
+                <div class="container ">
                     <form action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="my-3">
+                        <label>Exam Course:</label>
                         <select name="course" class="form-control form-select" id="">
                             <option value="">Choose a Course</option>
                             <option value="">Course 1</option>
@@ -110,11 +111,13 @@
                             <option value="">Course 3</option>
                         </select>
                     </div>
-                        <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Exam name"></div>
-                        <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Exam duration"></div>
-                        <div class="form-group"><button class="btn btn-primary mt-2" type="submit">Add</button></div>
+                        <div class="form-group"><label>Exam Title:</label><input class="form-control" type="text" name="name" placeholder="CC1, CC2, EFM..."></div>
+                        <div class="form-group">
+                            <label>Exam Duration (in minutes):</label>
+                            <input class="form-control" type="text" name="name" placeholder="60"></div>
+                        <div class="form-group text-center"><button class="btn btn-primary mt-2" type="submit">Save Exam</button></div>
                     </form>
-                </div>
+                </div>  
             </div>
         </div>
     </div>

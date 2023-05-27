@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ExamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\QuestionController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,10 +46,14 @@ Route::middleware('auth')->group(function(){
         Route::get('/AddCourse', [CourseController::class , 'create']);
         Route::post('/AddCourse', [CourseController::class , 'store']);
         Route::get('/ShowCourses', function () {return view('Teacher.Courses.ShowCourses');});
+        // exams related routes
         Route::get('/AddExam', function () {return view('Teacher.Exams.AddExam');});
         Route::get('/ShowExams', function () {return view('Teacher.Exams.ShowExams');});
+        Route::get('/ShowExam/{id}', [ExamController::class, 'showExam']);
         Route::get('/AddMCQuestion', function () {return view('Teacher.Questions.AddMCQuestion');});
         Route::get('/AddSCQuestion', function () {return view('Teacher.Questions.AddSCQuestion');});
+        Route::get('/AddTextQuestion', function () {return view('Teacher.Questions.AddTextQuestion');});
+        Route::post('/AddTextQuestion', [QuestionController::class, 'addTextQuestion'])->name('addTextQuestion');
 
     });
 

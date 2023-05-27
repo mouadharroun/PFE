@@ -161,6 +161,11 @@
             <i class="bi bi-circle"></i><span>Add MC Question</span>
             </a>
         </li>
+        <li>
+            <a href="/teacher/AddTextQuestion">
+            <i class="bi bi-circle"></i><span>Add Text Question</span>
+            </a>
+        </li>
         </ul>
     </li><!-- End Questions Nav -->
 
@@ -172,6 +177,12 @@
 
 
 <main id="main" class="main">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
 
 @yield('content')   
 
@@ -189,6 +200,7 @@
 <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script type="module" src="{{ asset('js/actions.js') }}" ></script>
 
 </body>
 </html>
