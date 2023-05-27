@@ -100,16 +100,16 @@
         <div class="col-lg-6">
             <div class="newsletter-subscribe">
                 <div class="container text-center">
-                    <form action="" method="post" class="d-flex justify-content-center">
+                    <form action="/teacher/AddSCQuestion" method="post" class="d-flex justify-content-center">
                     @csrf
                     <table class="table text-center table-borderless">
                         <tr>
                             <td colspan="2">
                                 <select name="Exam" class="form-control form-select" id="">
                                     <option value="">Choose an Exam please</option>
-                                    <option value="">Exam 1</option>
-                                    <option value="">Exam 2</option>
-                                    <option value="">Exam 3</option>
+                                    <option value="1">Exam 1</option>
+                                    <option value="2">Exam 2</option>
+                                    <option value="3">Exam 3</option>
                                 </select>
                             </td>
                         </tr>
@@ -120,18 +120,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 1">
+                                <input class="form-control" type="text" name="option1" placeholder="Option 1">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 2">
+                                <input class="form-control" type="text" name="option2" placeholder="Option 2">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 3">
+                                <input class="form-control" type="text" name="option3" placeholder="Option 3">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 4">
+                                <input class="form-control" type="text" name="option3" placeholder="Option 4">
                             </td>
                         </tr>
                         <tr>
@@ -145,11 +145,11 @@
                                 </select> 
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="2">
                                 <input class="form-control" type="number" name="point" placeholder="Question point">
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td colspan="2">
                                 <button class="btn btn-primary mt-2 btn-block" type="submit">Add</button>

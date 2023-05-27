@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,12 @@ use App\Http\Controllers\CourseController;
 ///login & Register
 Route::get('/login', function () {
     if (Auth::check()) {
-        return redirect('/dashboard');
+        $user = Auth::user();
+        if ($user->role === 'teacher') {
+            return redirect('/teacher/dashboard');
+        } elseif ($user->role === 'student') {
+            return redirect('/student/dashboard');
+        }
     }
     return view('Login.Login');
 })->name('login');
@@ -47,6 +53,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/ShowExams', function () {return view('Teacher.Exams.ShowExams');});
         Route::get('/AddMCQuestion', function () {return view('Teacher.Questions.AddMCQuestion');});
         Route::get('/AddSCQuestion', function () {return view('Teacher.Questions.AddSCQuestion');});
+        Route::post('/AddSCQuestion', [QuestionController::class , 'store']);
 
     });
 
