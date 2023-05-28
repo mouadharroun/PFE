@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/AddExam', function () {return view('Teacher.Exams.AddExam');});
         Route::get('/ShowExams', function () {return view('Teacher.Exams.ShowExams');});
         Route::get('/AddMCQuestion', function () {return view('Teacher.Questions.AddMCQuestion');});
+        Route::post('/AddMCQuestion', [QuestionController::class , 'Mstore']);
         Route::get('/AddSCQuestion', function () {return view('Teacher.Questions.AddSCQuestion');});
         Route::post('/AddSCQuestion', [QuestionController::class , 'store']);
 

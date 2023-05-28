@@ -86,11 +86,11 @@
     }
 </style>
 <div class="pagetitle">
-      <h1>Add Single Choice Question</h1>
+      <h1>Add Multiple Choice Question</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-          <li class="breadcrumb-item active">Add SC Question</li>
+          <li class="breadcrumb-item active">Add MC Question</li>
         </ol>
       </nav>
 </div><!-- End Page Title -->
@@ -100,16 +100,16 @@
         <div class="col-lg-6">
             <div class="newsletter-subscribe">
                 <div class="container text-center">
-                    <form action="" method="post" class="d-flex justify-content-center">
+                    <form action="/teacher/AddMCQuestion" method="post" class="d-flex justify-content-center">
                     @csrf
                     <table class="table text-center table-borderless">
                         <tr>
                             <td colspan="2">
                                 <select name="Exam" class="form-control form-select" id="">
                                     <option value="">Choose an Exam Please</option>
-                                    <option value="">Exam 1</option>
-                                    <option value="">Exam 2</option>
-                                    <option value="">Exam 3</option>
+                                    <option value="1">Exam 1</option>
+                                    <option value="2">Exam 2</option>
+                                    <option value="3">Exam 3</option>
                                 </select>
                             </td>
                         </tr>
@@ -120,36 +120,38 @@
                         </tr>
                         <tr>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 1">
+                                <input class="form-control" type="text" name="option1" placeholder="Option 1">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 2">
+                                <input class="form-control" type="text" name="option2" placeholder="Option 2">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 3">
+                                <input class="form-control" type="text" name="option3" placeholder="Option 3">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="name" placeholder="Option 4">
+                                <input class="form-control" type="text" name="option4" placeholder="Option 4">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <select name="correct_option" class="form-control form-select py-3" id="" multiple>
+                            <input class="form-control mb-3" type="number" name="first_option" placeholder="First correct option (1-2-3-4)">
+                            <input class="form-control" type="number" name="second_option" placeholder="Second correct option (1-2-3-4)">
+                                <!-- <select name="correct_option" class="form-control form-select py-3" id="" multiple>
                                     <option value="">Choose the Correct Options</option>
                                     <option value="option1">Option 1</option>
                                     <option value="option2">Option 2</option>
                                     <option value="option3">Option 3</option>
                                     <option value="option4">Option 4</option>
-                                </select> 
+                                </select>  -->
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="2">
                                 <input class="form-control" type="number" name="point" placeholder="Question point">
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td colspan="2">
                                 <button class="btn btn-primary mt-2 btn-block" type="submit">Add</button>

@@ -94,7 +94,14 @@
         </ol>
       </nav>
 </div><!-- End Page Title -->
-
+@if(session('messageS'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{session('messageS')}}</strong>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>&times;</span>
+        </button>
+    </div>
+@endif
 <section class="section dashboard">
     <div class="row justify-content-center">
         <div class="col-lg-6">
@@ -131,18 +138,20 @@
                                 <input class="form-control" type="text" name="option3" placeholder="Option 3">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="option3" placeholder="Option 4">
+                                <input class="form-control" type="text" name="option4" placeholder="Option 4">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <select name="correct_option" class="form-control form-select" id="">
+                            <input class="form-control" type="number" name="correct_option" placeholder="the correct option (1-2-3-4)">
+
+                                <!-- <select name="correct_option" class="form-control form-select" id="">
                                     <option value="">Choose the Correct Option</option>
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                    <option value="option4">Option 4</option>
-                                </select> 
+                                    <option value="0">1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                </select> -->
                             </td>
                         </tr>
                         <!-- <tr>
@@ -162,4 +171,6 @@
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
