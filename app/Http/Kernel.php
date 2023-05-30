@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\isTeacher;
+use App\Http\Middleware\isStudent;
 
 class Kernel extends HttpKernel
 {
@@ -36,6 +38,9 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            /* \App\Http\Middleware\isTeacher::class,
+            \App\Http\Middleware\isStudent::class */
+
         ],
 
         'api' => [
@@ -63,5 +68,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'isTeacher' => \App\Http\Middleware\isTeacher::class,
+        'isStudent' => \App\Http\Middleware\isStudent::class,
     ];
 }

@@ -94,7 +94,14 @@
         </ol>
       </nav>
 </div><!-- End Page Title -->
-
+@if(session('messageM'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{session('messageM')}}</strong>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>&times;</span>
+        </button>
+    </div>
+@endif
 <section class="section dashboard">
     <div class="row justify-content-center">
         <div class="col-lg-6">

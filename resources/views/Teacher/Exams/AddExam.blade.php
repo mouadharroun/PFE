@@ -94,24 +94,33 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+    @if(session('messageE'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{session('messageE')}}</strong>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>&times;</span>
+        </button>
+    </div>
+    @endif
     <section class="section dashboard">
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="newsletter-subscribe">
                 <div class="container text-center">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="/teacher/AddExam" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="my-3">
+                    @isset($courses)
                         <select name="course" class="form-control form-select" id="">
                             <option value="">Choose a Course</option>
-                            <option value="">Course 1</option>
-                            <option value="">Course 2</option>
-                            <option value="">Course 3</option>
+                        @foreach($courses as $course)
+                            <option value="{{$course->id}}">{{$course->name}}</option>
+                        @endforeach
                         </select>
+                    @endisset
                     </div>
                         <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Exam name"></div>
-                        <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Exam duration"></div>
+                        <div class="form-group"><input class="form-control" type="text" name="duration" placeholder="Exam duration"></div>
                         <div class="form-group"><button class="btn btn-primary mt-2" type="submit">Add</button></div>
                     </form>
                 </div>
@@ -119,4 +128,6 @@
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

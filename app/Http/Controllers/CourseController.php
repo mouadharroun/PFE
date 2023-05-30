@@ -8,7 +8,7 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    public function create(){
+    public function create(){   
         $groups = Group::all();
         return view('Teacher.Courses.AddCourse' , ['groups' =>$groups]);
     }
