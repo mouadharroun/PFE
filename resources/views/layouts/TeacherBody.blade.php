@@ -16,6 +16,91 @@
     <link rel="stylesheet" href="{{ asset('vendor/remixicon/remixicon.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="{{asset('bootstrap.css')}}">
+    <style>
+        .newsletter-subscribe {
+            color: #313437;
+            background-color: #fff;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .newsletter-subscribe form {
+            width: 100%;
+            max-width: 400px;
+        }
+    
+        .newsletter-subscribe p {
+        color:#7d8285;
+        line-height:1.5;
+        }
+    
+        .newsletter-subscribe h2 {
+        font-size:24px;
+        font-weight:bold;
+        margin-bottom:25px;
+        line-height:1.5;
+        padding-top:0;
+        margin-top:0;
+        color:inherit;
+        }
+    
+        .newsletter-subscribe .intro {
+        font-size:16px;
+        max-width:500px;
+        margin:0 auto 25px;
+        }
+    
+        .newsletter-subscribe .intro p {
+        margin-bottom:35px;
+        }
+    
+        .newsletter-subscribe form {
+        justify-content:center;
+        }
+    
+        .newsletter-subscribe form .form-control {
+        background:#eff1f4;
+        border:none;
+        border-radius:3px;
+        box-shadow:none;
+        outline:none;
+        color:inherit;
+        text-indent:9px;
+        height:45px;
+        margin-right:10px;
+        min-width:250px;
+        }
+    
+        .newsletter-subscribe form .btn {
+        padding:16px 32px;
+        border:none;
+        background:none;
+        box-shadow:none;
+        text-shadow:none;
+        opacity:0.9;
+        text-transform:uppercase;
+        font-weight:bold;
+        font-size:13px;
+        letter-spacing:0.4px;
+        line-height:1;
+        }
+    
+        .newsletter-subscribe form .btn:hover {
+        opacity:1;
+        }
+    
+        .newsletter-subscribe form .btn:active {
+        transform:translateY(1px);
+        }
+    
+        .newsletter-subscribe form .btn-primary {
+        background-color:#055ada !important;
+        color:#fff;
+        outline:none !important;
+        }
+    </style>
     
     <title>Document</title>
 </head>
@@ -24,7 +109,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="teacher/dashboard" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
             <span class="d-none d-lg-block">Teacher Dashboard</span>
         </a>
@@ -37,21 +122,21 @@
         <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
+            <img src="{{ asset('Interface_imgs/user.png') }}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-            <h6>Kevin Anderson</h6>
-            <span>Web Designer</span>
+            <h6>{{Auth::user()->name}}</h6>
+            <span>Teacher</span>
             </li>
             <li>
             <hr class="dropdown-divider">
             </li>
 
             <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+            <a class="dropdown-item d-flex align-items-center" href="/profile">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
             </a>

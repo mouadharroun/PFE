@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\ShowExamController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,10 @@ use App\Http\Controllers\CourseController;
 |
 */
 ///login & Register
+Route::get('/', function () {
+    return view('/interface');
+});
+
 Route::get('/login', function () {
     if (Auth::check()) {
         return redirect('/dashboard');
@@ -29,7 +36,7 @@ Route::get('/Register', function () {
         return redirect('/dashboard');
     }
      return view('Login.Register'); 
-});
+})->name('Register');;
 
 Route::post('/Register', [AuthController::class , 'register'] );
 
@@ -43,12 +50,15 @@ Route::middleware('auth')->group(function(){
         Route::get('/AddCourse', [CourseController::class , 'create']);
         Route::post('/AddCourse', [CourseController::class , 'store']);
         Route::get('/ShowCourses', function () {return view('Teacher.Courses.ShowCourses');});
-        Route::get('/AddExam', function () {return view('Teacher.Exams.AddExam');});
-        Route::get('/ShowExams', function () {return view('Teacher.Exams.ShowExams');});
+        Route::get('/AddExam', [ExamController::class , 'index']);
+        Route::post('/AddExam', [ExamController::class , 'store']);
+        Route::get('/ShowExams', [ShowExamController::class , 'index']);
+        Route::get('/Delete{id}', [ShowExamController::class , 'destroy']);
         Route::get('/AddMCQuestion', function () {return view('Teacher.Questions.AddMCQuestion');});
         Route::get('/AddSCQuestion', function () {return view('Teacher.Questions.AddSCQuestion');});
 
     });
+    Route::get('/profile', function () {return view('Teacher.Profile.profile');});
 
     Route::prefix('student')->group(function(){
         Route::get('/dashboard', function () {return view('Student.Dashboard');});
