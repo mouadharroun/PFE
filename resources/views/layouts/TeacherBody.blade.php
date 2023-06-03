@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.gstatic.com" rel="preconnect">
+  {{-- <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"> --}}
+ {{--  <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css"> --}}
+
+  <link rel="stylesheet" href="{{ asset('css/buttons.dataTables.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+   {{--  <link href="assets/css/style.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/quill/quill.snow.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/quill/quill.bubble.css') }}">
+
     <link rel="stylesheet" href="{{ asset('vendor/remixicon/remixicon.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/simple-datatables/style.css') }}">
+{{--     <link rel="stylesheet" href="{{ asset('vendor/simple-datatables/style.css') }}"> --}}
     <link rel="stylesheet" href="{{asset('bootstrap.css')}}">
+
+
+
     
     <title>Document</title>
+
+    
 </head>
 <body>
     <!-- ======= Header ======= -->
@@ -25,7 +35,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="">
+            {{-- <img src="assets/img/logo.png" alt=""> --}}
             <span class="d-none d-lg-block">Teacher Dashboard</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -166,9 +176,30 @@
             <i class="bi bi-circle"></i><span>Add Text Question</span>
             </a>
         </li>
+        <li>
+            <a href="/teacher/AddTextQuestion">
+            <i class="bi bi-circle"></i><span>Add True/False Question</span>
+            </a>
+        </li>
         </ul>
     </li><!-- End Questions Nav -->
 
+    <li class="nav-item">
+        <a class="nav-link" href="/chatify">
+            <i class="bi bi-chat-left-text"></i><span>Chat</span>
+        </a>
+        
+    </li><!-- End Exams Nav -->
+    
+    <li class="nav-item">
+        <a class="nav-link" href="/teacher/examsResults">
+            <i class="bi bi-chat-left-text"></i><span>Results</span>
+        </a>
+        
+    </li>
+
+
+    
     <li class="nav-heading">Pages</li>
 
     </ul>
@@ -199,8 +230,25 @@
 <script src="{{ asset('vendor/simple-datatables/simple-datatables.js') }}"></script>
 <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" type="text/javascript"></script>
+{{-- <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" type="text/javascript"></script>
+ --}}
+ <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script type="module" src="{{ asset('js/actions.js') }}" ></script>
+<script src="{{ asset('js/actions.js') }}" ></script>
+<script src="{{ asset('js/forms.js') }}" ></script>
+<script src="{{ asset('js/questionsActions.js') }}" ></script>
+
+ 
 
 </body>
 </html>

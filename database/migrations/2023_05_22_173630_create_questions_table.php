@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('exam_id');
             $table->string('question_text');
-            $table->string('question_image')->nullable();
+            $table->boolean('is_correct')->nullable();
             $table->timestamps();
         
             $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');

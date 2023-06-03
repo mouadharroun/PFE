@@ -1,5 +1,3 @@
-import axios from "../../node_modules/axios";
-
 const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -75,11 +73,15 @@ if (select(".quill-editor-full")) {
 
 function saveQuestion(content) {
     axios
-        .post("teacher/AddTextQuestion", {
+        .post("/teacher/AddTextQuestion", {
             question_content: content,
         })
         .then(function (response) {
-            console.log(response.data);
+            // Extract the redirect URL from the response
+            var redirectUrl = response.data.redirect_url;
+
+            // Redirect to the URL on the client-side
+            window.location.href = redirectUrl;
         })
         .catch(function (error) {
             console.error(error);

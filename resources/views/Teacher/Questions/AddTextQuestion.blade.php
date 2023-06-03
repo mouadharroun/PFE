@@ -71,24 +71,6 @@
 
       </div>
 
-      <script>
-               // Get the Quill editor instance
-                  var quill = new Quill('#editor', {
-                        theme: 'snow'
-                  });
-
-                  // Update the hidden input field value before form submission
-                  var form = document.getElementById('your-form-id'); // Replace 'your-form-id' with the actual ID of your form
-                  form.onsubmit = function() {
-                        var content = quill.root.innerHTML;
-                        var input = document.createElement('input');
-                        input.setAttribute('type', 'hidden');
-                        input.setAttribute('name', 'question_text');
-                        input.setAttribute('value', content);
-                        form.appendChild(input);
-                  };
-        </script>
-        
-    </section>
+    
 
 @endsection

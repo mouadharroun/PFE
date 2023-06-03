@@ -8,11 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'exam_id',
+        'question_text',
+        'question_type'
+        // Other question properties if any
+    ];
+    
     public function exam() {
         return $this->belongsTo(Exam::class, 'exam_id');
     }
 
     public function options() {
-        return $this->hasMany(Option::class, 'question_id');
+        return $this->hasMany(MultipleChoiceOption::class, 'question_id');
     }
 }

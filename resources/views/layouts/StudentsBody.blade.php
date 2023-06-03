@@ -133,12 +133,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-            <a href="/AddExam">
-            <i class="bi bi-circle"></i><span>Add Exam</span>
-            </a>
-        </li>
-        <li>
-            <a href="/ShowExams">
+            <a href="/showStudentExams">
             <i class="bi bi-circle"></i><span>Show Exams</span>
             </a>
         </li>

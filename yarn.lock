@@ -306,6 +306,11 @@
   "resolved" "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz"
   "version" "1.0.2"
 
+"sweetalert2@^11.7.8":
+  "integrity" "sha512-s6WMsK0DogOZ2fj21tM5LjeBcQm7sPf+Z0sksxhZFs9HeIKAnLz8NMeIIOgcB/wS7/ZzP95d3jxzE6FbSau6eA=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.7.8.tgz"
+  "version" "11.7.8"
+
 "vite-plugin-full-reload@^1.0.5":
   "integrity" "sha512-kVZFDFWr0DxiHn6MuDVTQf7gnWIdETGlZh0hvTiMXzRN80vgF4PKbONSq8U1d0WtHsKaFODTQgJeakLacoPZEQ=="
   "resolved" "https://registry.npmjs.org/vite-plugin-full-reload/-/vite-plugin-full-reload-1.0.5.tgz"
